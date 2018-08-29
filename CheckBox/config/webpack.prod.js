@@ -2,6 +2,7 @@ const path = require("path");
 const webpack = require("webpack");
 const merge = require("webpack-merge");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const commonConfig = require("./webpack.common");
 
 module.exports = merge(commonConfig, {
@@ -56,6 +57,13 @@ module.exports = merge(commonConfig, {
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify("production"),
     }),
+
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, "../index.d.ts"),
+        to: path.resolve(__dirname, "../../lib/CheckBox"),
+      },
+    ]),
 
     // 将 CSS 文件输出到指定的文件
     // new ExtractTextPlugin('style.css'),
