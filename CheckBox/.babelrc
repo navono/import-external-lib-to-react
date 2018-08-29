@@ -1,0 +1,15 @@
+{
+  "presets": [
+    ["env", {
+      "modules": false,
+      "useBuiltIns": true,
+      "debug": true
+    }],
+    "react",
+    "stage-1"
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+  ]
+}
