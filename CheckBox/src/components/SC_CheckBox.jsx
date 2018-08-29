@@ -9,7 +9,6 @@ export default class SC_CheckBox extends React.Component {
       checked: false,
     };
 
-    // this.dataChange = this.dataChange.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 

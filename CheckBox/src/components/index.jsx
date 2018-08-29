@@ -16,13 +16,7 @@ class CheckBox {
     const { id, title, tagName, rtInterface } = this.params;
 
     return ReactDOM.render(
-      <div>
-        <SC_CheckBox
-          title={title}
-          tagName={tagName}
-          rtInterface={rtInterface}
-        />
-      </div>,
+      <SC_CheckBox title={title} tagName={tagName} rtInterface={rtInterface} />,
       document.getElementById(id),
     );
   }

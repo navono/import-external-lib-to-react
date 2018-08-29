@@ -34,10 +34,10 @@ module.exports = merge(commonConfig, {
       root: path.resolve(__dirname, "../../lib"),
     }),
 
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      debug: true,
-    }),
+    // new webpack.LoaderOptionsPlugin({
+    //   minimize: true,
+    //   debug: true,
+    // }),
 
     // new webpack.optimize.UglifyJsPlugin({
     //   beautify: false,

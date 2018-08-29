@@ -55,10 +55,7 @@ const commonConfig = {
 
   resolve: {
     extensions: [".js", ".jsx", ".json"],
-    modules: [
-      path.join(__dirname, "../../CheckBox/node_modules"),
-      "../node_modules",
-    ],
+    modules: [path.join(__dirname, "../node_modules"), "../node_modules"],
   },
 
   // externals: Object.keys(externals || {})
