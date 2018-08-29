@@ -1,5 +1,6 @@
 const webpack = require("webpack");
 const merge = require("webpack-merge");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const commonConfig = require("./webpack.common");
 
 const PORT = process.env.PORT || 3000;
@@ -55,6 +56,11 @@ module.exports = merge(commonConfig, {
 
     new webpack.LoaderOptionsPlugin({
       debug: true,
+    }),
+
+    new HtmlWebpackPlugin({
+      template: "./index.html",
+      inject: "body",
     }),
   ],
 });
