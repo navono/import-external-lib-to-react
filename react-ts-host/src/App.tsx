@@ -23,6 +23,7 @@ class App extends React.Component {
   private handleLoadCheckBox = (e: any) => {
     // 如果想要传入变量名到 import，应该首先指定好模块所在的目录（其实就是 webpack 的查找路径），然后再用模块名称拼接。
     // 如果将整个模块路径保存到变量中传入 import，webpack会提示找不到模块
+    // https://segmentfault.com/a/1190000015648036
 
     const modPath = 'CheckBox';
     import('../../lib/' + modPath)
