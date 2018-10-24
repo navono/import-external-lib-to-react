@@ -1,10 +1,25 @@
 import * as React from 'react';
+import * as path from 'path';
 import './App.css';
-
 import logo from './logo.svg';
+import * as loadjs from 'loadjs';
 
-class App extends React.Component {
+interface IState {
+  customComponent: any;
+}
+
+class App extends React.Component<any, IState> {
+  constructor(props: any) {
+    super(props);
+
+    this.state = {
+      customComponent: null,
+    };
+  }
+
   public render() {
+    const { customComponent } = this.state;
+    const enable = customComponent !== null;
     return (
       <div className="App">
         <header className="App-header">
@@ -16,6 +31,7 @@ class App extends React.Component {
         </p>
         <input type='button' value="load Checkbox" onClick={this.handleLoadCheckBox} />
         <div id="checkBox"/>
+        {enable && <this.state.customComponent/>}
       </div>
     );
   }
@@ -25,16 +41,31 @@ class App extends React.Component {
     // 如果将整个模块路径保存到变量中传入 import，webpack会提示找不到模块
     // https://segmentfault.com/a/1190000015648036
 
-    const modPath = 'CheckBox';
-    import('../../lib/' + modPath)
-      .then((CheckBoxNS) => {
-          const checkBox = new CheckBoxNS.CheckBox({id: "checkBox", title: "Test title"});
-          checkBox.render();
-      })
-      .catch((err) => {
-        // tslint:disable-next-line no-console
-        console.log("Failed to load CheckBox", err);
-      });
+    const modName = 'CheckBox';
+    // import('../../lib/' + modName)
+    
+    console.log(__dirname, process.cwd());
+    console.log(path.resolve(__dirname, '../../'));
+    // const basic = `../../`;
+    
+    loadjs([`../../lib/${modName}/index.js`], modName, {
+      success: () => {
+        this.setState({
+          customComponent: (window as any).CheckBox.default
+        });
+        console.log('load js ', (window as any).CheckBox);
+      },
+    });
+
+    // import(`${basic}lib/` + modName)
+    //   .then((CheckBoxNS) => {
+    //       const checkBox = new CheckBoxNS.CheckBox({id: "checkBox", title: "Test title"});
+    //       checkBox.render();
+    //   })
+    //   .catch((err) => {
+    //     // tslint:disable-next-line no-console
+    //     console.log("Failed to load CheckBox", err);
+    //   });
   }
 }
 

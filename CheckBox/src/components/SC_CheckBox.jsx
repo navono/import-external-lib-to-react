@@ -30,6 +30,7 @@ export default class SC_CheckBox extends React.Component {
         {this.props.title}
       </Checkbox>
     );
+    // return <input>3rd component</input>;
   }
 
   dataChange = (idx, value) => {

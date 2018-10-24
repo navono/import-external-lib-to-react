@@ -36,7 +36,7 @@ module.exports = {
     "prettier/prettier": "error",
     
     indent: ["error", 2, { SwitchCase: 1 }],
-    "no-console": 1,
+    "no-console": 0,
     "no-unused-vars": 1,
     "react/no-render-return-value": 0
   }

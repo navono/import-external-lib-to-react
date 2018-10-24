@@ -21,14 +21,14 @@ module.exports = merge(commonConfig, {
     libraryTarget: "umd",
     library: "CheckBox",
   },
-  externals: {
-    react: {
-      root: "React",
-      commonjs2: "react",
-      commonjs: "react",
-      amd: "react",
-    },
-  },
+  // externals: {
+  //   react: {
+  //     root: "React",
+  //     commonjs2: "react",
+  //     commonjs: "react",
+  //     amd: "react",
+  //   },
+  // },
 
   plugins: [
     new CleanWebpackPlugin(["CheckBox"], {
