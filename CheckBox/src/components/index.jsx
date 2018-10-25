@@ -2,9 +2,14 @@
 
 // export const MyComponentLib = { App };
 
-import CheckBox from "./SC_CheckBox";
+import AwesomeComponent from "./SC_CheckBox";
 
-export default CheckBox;
+const Config = {
+  name: "test",
+};
+
+export default AwesomeComponent;
+export { Config };
 
 // import React from "react";
 // import ReactDOM from "react-dom";

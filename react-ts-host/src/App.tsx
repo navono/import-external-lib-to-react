@@ -41,19 +41,22 @@ class App extends React.Component<any, IState> {
     // 如果将整个模块路径保存到变量中传入 import，webpack会提示找不到模块
     // https://segmentfault.com/a/1190000015648036
 
-    const modName = 'CheckBox';
+    const fileName = 'TestName';
+    const modName = 'AwesomeComponent'
     // import('../../lib/' + modName)
     
     console.log(__dirname, process.cwd());
     console.log(path.resolve(__dirname, '../../'));
     // const basic = `../../`;
     
-    loadjs([`../../lib/${modName}/index.js`], modName, {
+    console.log('prepare to load component');
+    
+    loadjs([`../../lib/${fileName}/index.js`], modName, {
       success: () => {
         this.setState({
-          customComponent: (window as any).CheckBox.default
+          customComponent: (window as any)[modName].default
         });
-        console.log('load js ', (window as any).CheckBox);
+        console.log('load js ', (window as any)[modName].Config);
       },
     });
 

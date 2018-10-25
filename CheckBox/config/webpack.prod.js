@@ -19,7 +19,7 @@ module.exports = merge(commonConfig, {
     path: path.resolve(__dirname, "../../lib/CheckBox/"),
     filename: "[name].js",
     libraryTarget: "umd",
-    library: "CheckBox",
+    library: "AwesomeComponent",
   },
   // externals: {
   //   react: {
