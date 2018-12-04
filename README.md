@@ -12,5 +12,13 @@
 
 然后使用`import()`即可动态加载，详细参考`App.js`或者`App.tsx`。
 
+## react-ts-host
+`yarn build` 先编译产生结果文件。然后将 `lib` 拷贝到 `build` 文件夹。执行以下命令：
+```js
+npx http-server ./build/
+```
+
+访问 `http://localhost:8080`。
+
 ## 注意
 对于`typescript`的工程，需要额外添加`*.d.ts`声明文件。
